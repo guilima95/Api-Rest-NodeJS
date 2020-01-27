@@ -1,6 +1,6 @@
-import { Telefone, ITelefone } from './../telefone/telefone';
+import { Telefone, ITelefone } from './telefone';
 import { Schema, Document, Model, model, Error } from "mongoose";
-import { telefone } from "../telefone/telefone";
+import { telefone } from "./telefone";
 
 export interface IUsuario extends Document {
     nome: String;

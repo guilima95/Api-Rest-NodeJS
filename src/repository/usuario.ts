@@ -1,4 +1,4 @@
-import { Usuario } from '../models/usuario/usuario';
+import { Usuario } from '../models/usuario';
 
 
 
@@ -10,11 +10,13 @@ class RepositoryUsuario {
         return Usuario.find();
     }
     getById(id: { userId: string; }) {
-        return Usuario.findById(id);
+        return Usuario.findById(id.userId);
+    }
+    getUser(usuario: { email: string, senha: string }) {
+        return Usuario.findOne(usuario);
     }
     create(usuario: { _id: any; }) {
         return Usuario.create(usuario)
-
     }
     delete(id: { userId: any; }) {
         return Usuario.deleteMany(id);
@@ -22,7 +24,6 @@ class RepositoryUsuario {
     update(id: any, usuario: any) {
         return Usuario.findByIdAndUpdate(id, usuario);
     }
-
 }
 
 export default new RepositoryUsuario();

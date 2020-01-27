@@ -11,3 +11,15 @@ if (!JWT_SECRET) {
     console.log("No JWT secret string. Set JWT_SECRET environment variable.");
     process.exit(1);
 }
+
+var i  = 'Concrete Teste';          // Issuer 
+var s  = 'guilhermelucas.contato@gmail.com';        // Subject 
+var a  = 'https://github.com/guilima95/'; // Audience
+
+export const signOptions = {
+    issuer:  i,
+    subject:  s,
+    audience:  a,
+    expiresIn:  "12h",
+    algorithm:  "RS256"
+   };
