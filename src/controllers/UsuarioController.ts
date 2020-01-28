@@ -1,9 +1,6 @@
 import { Hash } from './../config/Hash';
 import repository from '../repository/usuario';
 import { Request, Response } from 'express';
-import { Descrypt } from './../config/Descrypt';
-
-
 
 
 class UsuarioController {

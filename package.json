@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node ./build/Server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build-sass && npm run build-ts && npm run lint && npm run copy-static-assets",
     "dev": "nodemon src/Server.ts"
@@ -23,6 +24,7 @@
     "dotenv": "^8.2.0",
     "errorhandler": "^1.5.1",
     "express": "^4.17.1",
+    "gulp": "^4.0.2",
     "install": "^0.13.0",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.7",
