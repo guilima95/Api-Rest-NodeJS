@@ -1,7 +1,5 @@
 import { Usuario } from '../models/usuario';
 
-
-
 class RepositoryUsuario {
 
     constructor() { }
@@ -12,14 +10,15 @@ class RepositoryUsuario {
     getById(id: { userId: string; }) {
         return Usuario.findById(id.userId);
     }
-    getUser(usuario: { email: string, senha: string }) {
-        return Usuario.findOne(usuario);
+    getUser(usuario: any) {
+        let login = { email: usuario }
+        return Usuario.findOne(login);
     }
-    create(usuario: { _id: any; }) {
+    create(usuario: any) {
         return Usuario.create(usuario)
     }
-    delete(id: { userId: any; }) {
-        return Usuario.deleteMany(id);
+    delete(id: any) {
+        return Usuario.deleteOne(id);
     }
     update(id: any, usuario: any) {
         return Usuario.findByIdAndUpdate(id, usuario);

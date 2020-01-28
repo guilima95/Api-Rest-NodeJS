@@ -22,16 +22,19 @@ class Auth {
 
     verifyJWT(req, res, next) {
         var token = req.headers['x-access-token'] || req.headers['X-Api-Token'];
-
         if (!token) return res.status(401).send({ auth: false, message: 'Não Autorizado.', status: res.statusCode });
-
-        jwt.verify(token, JWT_SECRET, function (err, decoded) {
-            if (decoded.exp == Date.now())
+        var decode = jwt.decode(token, { json: true });
+        jwt.verify(token, JWT_SECRET, (err: any, decoded: any) => {
+            if (decode.iat >= decode.exp) {
                 return res.status(401).send({ auth: false, message: 'Sessão expirou.', status: res.statusCode });
-            if (err) return res.status(500).send({ auth: false, message: 'Erro ao autenticar, entre em contato com administrador.' });
+            }
+            else if (err) {
+                return res.status(500).send({ auth: false, message: 'Sessão expirou. Entre em contato com administrador.', status: res.statusCode });
+            }
             // se tudo estiver ok, salva no request para uso posterior
             req.userId = decoded.id;
             next();
+
         });
     }
 }
