@@ -1,5 +1,5 @@
 {
-  "name": "omniStack10",
+  "name": "concrete",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -17,7 +17,6 @@
     "@types/bcrypt-nodejs": "0.0.30",
     "@types/jsonwebtoken": "^8.3.7",
     "@types/mongoose": "^5.5.41",
-    "bcrypt": "^3.0.6",
     "class-validator": "^0.11.0",
     "cors": "^2.8.5",
     "crypto-ts": "^1.0.2",
