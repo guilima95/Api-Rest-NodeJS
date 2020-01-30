@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node ./build/Server.js",
+    "start": "nodemon ./build/Server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npm run build-sass && npm run build-ts && npm run lint && npm run copy-static-assets",
     "dev": "nodemon src/Server.ts"
