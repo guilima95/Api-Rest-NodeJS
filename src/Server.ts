@@ -26,8 +26,9 @@ class Server {
 
     public config() {
         let self = this;
-        var porta = process.env.PORT || 3000;
-        self.app.set('port', porta)
+        var server_port = process.env.YOUR_PORT || process.env.PORT || 80;
+        var server_host = process.env.YOUR_HOST || '0.0.0.0';
+        self.app.set('port', server_port || server_host);
         self.app.use(express.json());
         self.app.use(express.urlencoded({ extended: false }));
         self.app.use(cors());
