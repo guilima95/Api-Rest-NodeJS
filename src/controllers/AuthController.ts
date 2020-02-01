@@ -11,7 +11,10 @@ class AuthController {
     async store(req: Request, res: Response): Promise<void> {
         await repository.getUser(req.body.email).then(usuario => {
             //Validacao da senha criptografada
-            if (!Descrypt(req.body.senha, usuario.senha.toString()))
+
+            let senhaDescryp = Descrypt(usuario.senha.toString());
+           
+            if (senhaDescryp !== req.body.senha)
                 res.json({ message: 'Usuário e/ou senha inválidos', status: 401 });
 
             else {

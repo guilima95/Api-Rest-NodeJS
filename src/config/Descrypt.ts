@@ -1,16 +1,10 @@
-import crypto = require('crypto');
+import { Decryptor, Encryptor } from 'strong-cryptor'
 
+const key = 'AHBSGTEUET125STSGBDHDJKXMPLKIU12' // store this key in secure place
 
+export const Descrypt = (hash: string): string => {
 
-export const Descrypt = (senha: string, hash: string): boolean => {
-
-    var mykey = crypto.createDecipher('aes-128-cbc', senha);
-    var mystr = mykey.update(hash, 'hex', 'utf8')
-    mystr += mykey.final('utf8');
-
-    if (mystr !== senha)
-        return false;
-
-    return true;
+    const decryptor = new Decryptor({ key })
+    return decryptor.decrypt(hash)
 
 }

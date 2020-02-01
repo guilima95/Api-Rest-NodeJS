@@ -1,10 +1,11 @@
-//import bcrypt = require("bcrypt");
-import crypto = require('crypto');
+import { Encryptor } from 'strong-cryptor'
 
+const key = 'AHBSGTEUET125STSGBDHDJKXMPLKIU12'
 
 export const Hash = (data: string): string => {
-    var decrypt = crypto.createHash('md5').update(name).digest('hex');
-    return decrypt;
+    const encryptor = new Encryptor({ key })
+    return encryptor.encrypt(data)
+
 }
 
 
