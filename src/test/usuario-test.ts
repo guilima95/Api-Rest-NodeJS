@@ -27,8 +27,8 @@ const usuarioMock = {
 
 
 describe('TDD de cadastro Usuário', () => {
-    it('Deve retornar statusCode 201', () => {
-        assert.equal(usuario.create(usuarioMock), );
+    it('Deve retornar statusCode 201', (res) => {
+        assert.equal(usuario.create(usuarioMock), Promise.reject());
     });
 
     // it('Teste: Deve Subtrair 2 Números', () => {
